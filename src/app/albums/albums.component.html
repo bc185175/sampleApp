@@ -1,0 +1,17 @@
+<div *ngIf="user">
+  <h3>Albums</h3>
+  <ul class="albums">
+    <li *ngFor="let album of albums "
+        [hidden]="album.userId!=user.id"
+        [class.selected]="album === selectedAlbum"
+        (click)="onSelect(album)">
+      <button> {{album.id}}
+      <br>
+      <img width="200" alt="thumbnail" [src]="album.thumbnail">
+      </button>
+    </li>
+  </ul>
+</div>
+<app-photos [album]="selectedAlbum"></app-photos>
+
+
